@@ -1,0 +1,13 @@
+<form method="post">
+{% csrf_token %}
+<dl>
+    {% for field in form %}
+    <dt class="{% if field.errors %}errors {% endif %}">{{ field.label_tag }}{% if field.field.required %}*{% endif %}</dt>
+    <dd class="{% if field.errors %}errors {% endif %}">{{ field }}{% if field.help_text %}<p>{{ field.help_text }}</p>{% endif %}{{ field.errors }}  </dd>
+    {% endfor %}
+    <dt></dt>
+    <dd>{{ form.non_form_errors }}</dd>
+    <dt></dt>
+    <dd><input type="submit" value="{{ submitvalue }}"/><input type="hidden" name="next" value="{{ next }}" /></dd>
+</dl>
+</form>

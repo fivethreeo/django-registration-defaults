@@ -1,11 +1,18 @@
+{% load i18n %}
+{% blocktrans with site.name as sitename %}
+
 You (or someone pretending to be you) have asked to register an account at 
-{{ site.name }}.  If this wasn't you, please ignore this email
+{{ sitename }}. If this wasn't you, please ignore this email
 and your address will be removed from our records.
 
 To activate this account, please click the following link within the next 
 {{ expiration_days }} days:
 
+To reset your password, please click the following link, or copy and paste it into your web browser:
+{% endblocktrans %}
+
 http://{{site.domain}}/accounts/activate/{{ activation_key }}
 
-Sincerely,
-{{ site.name }} Management
+{% trans "Best regards," %}
+{{ site_name }} {% trans "Management" %}
+
