@@ -3,9 +3,9 @@
 {% block title %}{% if account %}{% trans "Activation complete" %}{% else %}{% trans "Activation problem" %}{% endif %}{% endblock %}
 {% block body %}
 {% if account %}
-{% blocktrans %}Thanks {{ account }}, activation complete!  You may now {% endblocktrans %}<a href="{% url auth_login %}">{% trans "login" %}</a>{% blocktrans %}using the username and password you set at registration.{% endblocktrans %}
+<p>{% blocktrans %}Thanks {{ account }}, activation complete!  You may now {% endblocktrans %}<a href="{% url auth_login %}">{% trans "login" %}</a>{% blocktrans %}using the username and password you set at registration.{% endblocktrans %}</p>
 {% else %}
-{% trans "Oops &ndash; it seems that your activation key is invalid.  Please check the url again." %}
+<p>{% trans "Oops &ndash; it seems that your activation key is invalid.  Please check the url again." %}</p>
 {% endif %}
 {% endblock %}
 
